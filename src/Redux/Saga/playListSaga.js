@@ -70,11 +70,23 @@ function* getArtistDetails({ payload }) {
     )
   );
 
+  const relatedArtists = yield call(() =>
+    axios.get(
+      `https://api.spotify.com/v1/artists/${payload.id}/related-artists`,
+      {
+        headers: {
+          Authorization: `Bearer ${getAuthTokenFromLocal()}`,
+        },
+      }
+    )
+  );
+
   yield put(
     getArtistDetailSuccess({
       artistDetails: artist.data,
       artistAlbums: albums.data,
       topTracks: topTracks.data,
+      realatedArtist: relatedArtists.data,
     })
   );
 }

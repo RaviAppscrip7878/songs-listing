@@ -8,6 +8,7 @@ const initState = {
   artistDetail: {},
   artistAlbum: [],
   topTracks: [],
+  realatedArtist: [],
   access_token: null,
 };
 const playListSlice = createSlice({
@@ -46,6 +47,7 @@ const playListSlice = createSlice({
         artistDetail: action.payload.artistDetails,
         artistAlbum: action.payload.artistAlbums.items,
         topTracks: action.payload.topTracks.tracks,
+        realatedArtist: action.payload.realatedArtist.artists,
         isLoading: false,
       };
     },
@@ -75,7 +77,17 @@ export const topTrackSelector = createSelector(
   state,
   (state) => state.topTracks
 );
+export const realetedArtistSelector = createSelector(state, (state) => {
+  const dataList = state.realatedArtist;
+  const newArray = [];
+  const chunkSize = 5;
+  for (let i = 0; i < dataList.length; i += chunkSize) {
+    const chunk = dataList.slice(i, i + chunkSize);
+    newArray.push(chunk);
+  }
 
+  return newArray;
+});
 export const playListReducer = playListSlice.reducer;
 export const {
   getAlbumFetch,
