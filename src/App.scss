@@ -20,29 +20,39 @@
 .w-20 {
   width: 20%;
 }
-.related-artist-container
-{
-  .carousel-control-next,.carousel-control-prev{
+.related-artist-container {
+  .card-container {
+    max-width: 100%;
+    min-height: 236px;
+  }
+
+  .carousel-control-next,
+  .carousel-control-prev {
     background-color: black;
-      padding: 5px;
-      border-radius: 50%;
-      height: 30px;
-      width: 30px;
-      top: 50%;
-      bottom: 50%;
-      transform: translateY(-50%);
-      opacity: 1;
-    span{
+    padding: 5px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    top: 50%;
+    bottom: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    span {
       height: 30px;
       width: 30px;
       display: block;
-    }   
-  }
-  .related-artists
-  {
-    img{
-      height: 150px;
     }
   }
-  
+
+  .carousel-control-prev {
+    transform: translateX(-50%);
+  }
+  .carousel-control-next {
+    transform: translateX(50%);
+  }
+  .related-artists {
+    img {
+      height: 100%;
+    }
+  }
 }

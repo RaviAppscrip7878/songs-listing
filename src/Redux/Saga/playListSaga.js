@@ -37,6 +37,7 @@ function* getAlbumListAction() {
       },
     })
   );
+
   const { data } = albumRes;
   yield put(getAlbumList(data));
 }

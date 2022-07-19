@@ -7,11 +7,11 @@ const ArtistName = ({ artists, onArtistClick }) => {
     <div>
       {artists?.map((artist, i) => (
         <span
-          onClick={() => onArtistClick(artist.id)}
+          onClick={() => onArtistClick(artist?.id)}
           className="artist"
           key={i}
         >
-          {artist.name} {i < artists.length - 1 ? ", " : ""}
+          {artist?.name} {i < artists?.length - 1 ? ", " : ""}
         </span>
       ))}
     </div>
@@ -25,11 +25,11 @@ function AlbumCard({ detail, extraClasses }) {
   return (
     <div className={`card-container ${extraClasses}`}>
       <div>
-        <img src={detail.images[0].url} alt="card-img" />
+        <img src={detail?.images[0]?.url} alt="card-img" />
       </div>
-      <div className="playlist-name">{detail.name}</div>
+      <div className="playlist-name">{detail?.name}</div>
       <div className="artist-name">
-        <ArtistName onArtistClick={onArtistClick} artists={detail.artists} />
+        <ArtistName onArtistClick={onArtistClick} artists={detail?.artists} />
       </div>
     </div>
   );

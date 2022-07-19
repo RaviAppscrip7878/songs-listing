@@ -7,19 +7,22 @@ import {
   albumListSelector,
   getAlbumFetch,
   loaderSelector,
+  tokenSelector,
 } from "../Redux/ReducerSlices/PlayListSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
   const albumList = useSelector(albumListSelector);
   const isLoading = useSelector(loaderSelector);
+  const tokenFromRedux = useSelector(tokenSelector);
+
   const token = getAuthTokenFromLocal();
 
   useEffect(() => {
-    if (albumList.length <= 0 && token !== null) {
+    if (albumList.length <= 0 && (token !== null || tokenFromRedux !== null)) {
       dispatch(getAlbumFetch());
     }
-  }, [dispatch, token, albumList]);
+  }, [dispatch, token, albumList, tokenFromRedux]);
 
   return isLoading ? (
     <Loader />
