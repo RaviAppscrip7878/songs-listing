@@ -1,0 +1,37 @@
+.artist-header-component {
+  min-height: 250px;
+  border-bottom: 1px solid #0e4f859e;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 0 30px 20px 30px;
+  background-color: #5f909b9e;
+
+  .type,
+  .name,
+  .followers {
+    text-transform: capitalize;
+  }
+
+  .type {
+    font-size: 12px;
+    i {
+      background-color: rgb(128, 207, 128);
+      color: black;
+      padding: 4px;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+  .name {
+    font-size: 56px;
+    font-weight: bolder;
+  }
+
+  .followers {
+    font-weight: 600;
+  }
+}

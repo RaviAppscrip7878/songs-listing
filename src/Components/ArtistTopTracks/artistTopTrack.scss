@@ -1,0 +1,32 @@
+@import "../../mixins";
+
+.artist-track-list {
+  padding: 20px;
+  .list-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .track-list-section {
+    margin-top: 10px;
+    max-height: 350px;
+    overflow: auto;
+    .track-item {
+      display: flex;
+      align-items: center;
+      .track-img {
+        padding: 5px 0px;
+        height: 35px;
+        border-radius: 50%;
+      }
+      .track-name {
+        margin-left: 5px;
+        max-width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 14px;
+      }
+    }
+    @include custom-scroll(5px);
+  }
+}
